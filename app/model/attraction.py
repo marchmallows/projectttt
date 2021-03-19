@@ -16,6 +16,8 @@ class createAttractionModel(BaseModel):
 
 
 class updateAttractionModel(BaseModel):
+    idlat: Optional[str]
+    idlong: Optional[str]
     name_attraction: Optional[str]
     country: Optional[str]
     state: Optional[str]
