@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Insert attraction",
+			"name": "Insert music",
 			"event": [
 				{
 					"listen": "test",
@@ -15,7 +15,7 @@
 							"const jsonData = pm.response.json();",
 							"",
 							"pm.test(\"should have key mongo_id\", function () {",
-							"    pm.expect(jsonData.data).to.have.property('attraction_id');",
+							"    pm.expect(jsonData.data).to.have.property('music_id');",
 							"})"
 						],
 						"type": "text/javascript"
@@ -33,22 +33,22 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n \"id\":\"00001\" ,\n \"idlat\" : \"103.52416491276725\",\n   \"idlong\" : \"16.693614558623562\",\n  \"picture_url\":  \"https://www.paiduaykan.com/province/Northeast/kalasin/pic/sirindhornmuseum.jpg\",\n  \"name_attraction\" : \"พิพิธภัณฑ์สิรินธร\",\n    \"country\" : \"Thailand\",\n    \"state\" : \"จังหวัดกาฬสินธุ์\",\n    \"zone\" : \"ภาคเหนือ\",\n    \"seasons\" : \"ฤดูหนาว\",\n  \"Type\" : \"mountian\"\n  }\n"
+					"raw": "{\n \"id\":\"11111\" ,\n \"picture_urlmusic\" : \"https://video-images.vice.com/test-uploads/articles/5ebe602b9750920096b48faf/lede/1589534916204-Gracie-Abrams-by-Vince-Aung-iD.jpeg?crop=1xw%3A0.3919xh%3B0xw%2C0.1768xh&resize=2000%3A*\",\n   \"idlong\" : \"16.693614558623562\",\n  \"picture_urlowner\":  \"https://pyxis.nymag.com/v1/imgs/5d4/f6a/760f8a0206e072c19253da37e9a2d909da-Gracie03.rsocial.w1200.jpg\",\n  \"name_music\" : \"Friend\",\n    \"name_music_owner\" : \"Gracie Abrams\",\n    \"link_music\" : \"https://www.youtube.com/watch?v=qNeWBZ5B-xU&list=RDMMqNeWBZ5B-xU&start_radio=1\",\n    \"music_time\" : \"3.08\",\n    \"country\" : \"California\",\n  \"Type\" : \"Pop\"\n  }\n"
 				},
 				"url": {
-					"raw": "{{apiUrl}}/attraction",
+					"raw": "{{apiUrl}}/music",
 					"host": [
 						"{{apiUrl}}"
 					],
 					"path": [
-						"attraction"
+						"music"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Find attraction",
+			"name": "Find music",
 			"event": [
 				{
 					"listen": "test",
@@ -68,12 +68,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{apiUrl}}/attraction/",
+					"raw": "{{apiUrl}}/music/",
 					"host": [
 						"{{apiUrl}}"
 					],
 					"path": [
-						"attraction",
+						"music",
 						""
 					]
 				}
@@ -81,7 +81,7 @@
 			"response": []
 		},
 		{
-			"name": "Find attraction id by idlat order by asc",
+			"name": "Find music id by time order by asc",
 			"event": [
 				{
 					"listen": "test",
@@ -101,12 +101,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{apiUrl}}/attraction/?sort_by=age&order=asc",
+					"raw": "{{apiUrl}}/music/?sort_by=age&order=asc",
 					"host": [
 						"{{apiUrl}}"
 					],
 					"path": [
-						"attraction",
+						"music",
 						""
 					],
 					"query": [
@@ -124,7 +124,7 @@
 			"response": []
 		},
 		{
-			"name": "Find attraction sort by age order by desc",
+			"name": "Find music sort by music order by desc",
 			"event": [
 				{
 					"listen": "test",
@@ -149,7 +149,7 @@
 						"{{apiUrl}}"
 					],
 					"path": [
-						"attraction",
+						"music",
 						""
 					],
 					"query": [
@@ -167,7 +167,7 @@
 			"response": []
 		},
 		{
-			"name": "Update attraction",
+			"name": "Update music",
 			"event": [
 				{
 					"listen": "test",
@@ -198,23 +198,23 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"idlat\" : 103.52416491276725\n}"
+					"raw": "{\n    \"music_time\" : 3.08\n}"
 				},
 				"url": {
-					"raw": "{{apiUrl}}/attraction/00001",
+					"raw": "{{apiUrl}}/music/11111",
 					"host": [
 						"{{apiUrl}}"
 					],
 					"path": [
-						"attraction",
-						"00001"
+						"music",
+						"11111"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Find attraction by id",
+			"name": "Find music by id",
 			"event": [
 				{
 					"listen": "test",
@@ -234,12 +234,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{apiUrl}}/attraction/00001",
+					"raw": "{{apiUrl}}/music/00001",
 					"host": [
 						"{{apiUrl}}"
 					],
 					"path": [
-						"attraction",
+						"music",
 						"00001"
 					]
 				}
@@ -247,7 +247,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete attraction",
+			"name": "Delete music",
 			"event": [
 				{
 					"listen": "test",
@@ -281,13 +281,13 @@
 					"raw": "var jsonData = pm.response.json();\n\npm.test(\"should have key mongo_id\", function () {\n    pm.expect(jsonData.data).to.have.property('student_id');\n})\n\npm.test(\"should have key modified_count\", function () {\n    pm.expect(jsonData.data).to.have.property('deleted_count');\n})"
 				},
 				"url": {
-					"raw": "{{apiUrl}}/attraction/103.52416491276725",
+					"raw": "{{apiUrl}}/music/3.08",
 					"host": [
 						"{{apiUrl}}"
 					],
 					"path": [
-						"attraction",
-						"00001"
+						"music",
+						"11111"
 					]
 				}
 			},
